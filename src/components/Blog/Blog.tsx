@@ -13,11 +13,11 @@ const Blog = () => {
           Tenolent Template Shortcode and Post Feature that will blow your mind
           that will blow your mind
         </h1>
-        <h3 className="text-[24px] mt-[10px] font-semibold leading-[25px] sm:leading-[50px] text-[#606179] w-[95%] lg:w-[80%]">
+        <h3 className="text-[24px] mt-[10px] font-semibold leading-[25px] sm:leading-[50px] text-[#606179] w-[95%] lg:w-[80%] xl:w-[75%]">
           Tenonant Blogger Template have some premium and outstanding features
           that don’t have in any template
         </h3>
-        <div className="flex flex-col justify-center items-center sm:flex-row sm:justify-between lg:w-[80%] mt-[30px]">
+        <div className="flex flex-col justify-center items-center sm:flex-row sm:justify-between lg:w-[80%] xl:w-[75%] mt-[30px]">
           <div>
             <p className="text-[40px] font-semibold text-center sm:text-left">
               Khizar Khan
@@ -43,10 +43,10 @@ const Blog = () => {
           </div>
         </div>
       </div>
-      <div className="lg:w-[80%] mt-[30px]">
+      <div className="lg:w-[80%] xl:w-[75%] mt-[30px]">
         <img src={Desktop} alt="main" />
       </div>
-      <div className="lg:w-[80%] mt-[30px]">
+      <div className="lg:w-[80%] xl:w-[75%] mt-[30px]">
         <p className="text-[20px] mb-[20px]">
           Perpetual sincerity out suspected necessary one but provision
           satisfied. Respect nothing use set waiting pursuit nay you looking. If
