@@ -1,9 +1,10 @@
 import React from "react";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div className="bg-[#fafafa]">
-      <h1 className="text-3xl font-bold underline">Blog Service</h1>
+      <Navbar />
     </div>
   );
 }

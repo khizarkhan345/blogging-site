@@ -1,7 +1,7 @@
 import React from "react";
 
-const Terms = () => {
-  return <h1>Terms</h1>;
+const Blog = () => {
+  return <h1>Blog</h1>;
 };
 
-export default Terms;
+export default Blog;
