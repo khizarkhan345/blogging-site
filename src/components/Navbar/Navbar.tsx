@@ -54,7 +54,7 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search"
-              className="w-[150px] h-[50px] rounded-[30px] border-1 pl-[10px] bg-[#F3F4F8] focus:border-0 focus:outline-none"
+              className="w-[150px] xl:w-[280px] h-[50px] rounded-[30px] border-1 pl-[10px] bg-[#F3F4F8] focus:border-0 focus:outline-none"
             />
             <button className="absolute top-[4px] right-[10px]">
               <img src={icon} alt="search" className="w-[50px] h-[40px]" />
