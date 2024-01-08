@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="px-[30px] sm:px-[10px] md:px-[20px] lg:px-[100px] py-[40px] py-[80px] bg-[#fff]">
+    <div className="px-[30px] sm:px-[10px] md:px-[20px] lg:px-[100px] py-[40px] py-[80px] bg-[#fff]  border-b-[2px]">
       <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-10">
         <div className="flex flex-col items-center order-2 md:order-1 sm:col-span-1 md:col-span-2 mt-[30px] md:mt-0">
           <a
