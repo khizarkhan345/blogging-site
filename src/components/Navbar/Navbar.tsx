@@ -33,19 +33,19 @@ const Navbar = () => {
             Home
           </a>
           <a
-            href="/"
+            href="/blogs"
             className="sm:mr-[50px] md:mr-[60px] lg:mr-[80px] font-semibold text-offWhite text-[20px] hover:cursor-pointer  hover:text-darkWhite"
           >
             Blogs
           </a>
           <a
-            href="/"
+            href="/about"
             className="sm:mr-[50px] md:mr-[60px] lg:mr-[80px] font-semibold text-offWhite text-[20px] hover:cursor-pointer  hover:text-darkWhite"
           >
             About
           </a>
           <a
-            href="/"
+            href="/contact"
             className="sm:mr-[50px] md:mr-[60px] lg:mr-[80px] p-[2px] font-semibold text-offWhite text-[20px] hover:cursor-pointer  hover:text-darkWhite"
           >
             Contact
@@ -74,19 +74,19 @@ const Navbar = () => {
           Home
         </a>
         <a
-          href="/"
+          href="/blogs"
           className="mb-[30px] text-offWhite text-[20px] font-semibold hover:cursor-pointer  hover:text-darkWhite"
         >
           Blogs
         </a>
         <a
-          href="/"
+          href="/about"
           className="mb-[30px] text-offWhite text-[20px] font-semibold hover:cursor-pointer  hover:text-darkWhite"
         >
           About
         </a>
         <a
-          href="/"
+          href="/contact"
           className="mb-[30px] p-[2px] font-semibold text-offWhite  text-[20px] hover:cursor-pointer  hover:text-darkWhite"
         >
           Contact

@@ -20,19 +20,19 @@ const Footer = () => {
             Home
           </a>
           <a
-            href="/"
+            href="/blogs"
             className="font-semibold text-offWhite text-[20px] mb-[15px] hover:cursor-pointer  hover:text-darkWhite"
           >
             Blogs
           </a>
           <a
-            href="/"
+            href="/about"
             className=" font-semibold text-offWhite text-[20px] mb-[15px] hover:cursor-pointer  hover:text-darkWhite"
           >
             About
           </a>
           <a
-            href="/"
+            href="/contact"
             className="font-semibold text-offWhite text-[20px] hover:cursor-pointer  hover:text-darkWhite"
           >
             Contact
@@ -40,35 +40,33 @@ const Footer = () => {
         </div>
         <div className="order-4 md:order-3 flex flex-col items-center sm:col-span-1 md:col-span-2 mt-[30px] sm:mt-0">
           <a
-            href="/"
+            href="/privacy"
             className="font-semibold text-offWhite text-[20px] mb-[15px] hover:cursor-pointer  hover:text-darkWhite"
           >
             Privacy
           </a>
           <a
-            href="/"
+            href="/terms"
             className=" font-semibold text-offWhite text-[20px] mb-[15px] hover:cursor-pointer  hover:text-darkWhite"
           >
             Terms
           </a>
           <a
-            href="/"
+            href="/cookies"
             className="font-semibold text-offWhite text-[20px] hover:cursor-pointer  hover:text-darkWhite"
           >
             Cookies
           </a>
         </div>
-        <div className="order-1 md:order-4 mx-auto sm:col-span-3 md:col-span-4 w-[400px] mb-[50px] md:mb-0">
-          <p className="text-[24px] mb-[15px] text-center md:text-left">
-            Subscribe to our newsletter
-          </p>
+        <div className="flex flex-col items-center md:items-start order-1 md:order-4 mx-auto sm:col-span-3 md:col-span-4 w-[400px] mb-[50px] md:mb-0">
+          <p className="text-[24px] mb-[15px]">Subscribe to our newsletter</p>
           <div className="flex flex-row relative">
             <input
               type="text"
               placeholder="Email"
-              className="w-[400px] h-[70px] bg-[#f3f4f8] rounded-[50px] pl-[20px] focus:border-0 focus:outline-none"
+              className="w-[370px] sm:w-[400px] h-[70px] bg-[#f3f4f8] rounded-[50px] pl-[20px] focus:border-0 focus:outline-none"
             />
-            <button className="text-white bg-[#4E9CA8] w-[150px] h-[70px] text-center absolute right-0 rounded-[50px]">
+            <button className="text-white bg-[#4E9CA8] w-[130px] sm:w-[150px] h-[70px] text-center absolute right-0 sm:right-0 rounded-[50px]">
               Submit
             </button>
           </div>
