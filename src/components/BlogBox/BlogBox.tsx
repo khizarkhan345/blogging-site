@@ -3,7 +3,7 @@ import design from "../../images/design1.png";
 
 const BlogBox = () => {
   return (
-    <div className="flex items-center justify-center relative w-[380px] h-[414px] bg-[#D3D3DB] ">
+    <div className="flex items-center justify-center relative w-[350px] h-[414px]  shadow-md offset-x-10 offset-y-5 bg-[#D3D3DB]">
       <img
         src={design}
         alt="background"
