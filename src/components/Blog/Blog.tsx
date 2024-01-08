@@ -8,7 +8,7 @@ import BlogBox from "../BlogBox/BlogBox";
 
 const Blog = () => {
   return (
-    <div className="px-[30px] sm:px-[10px] md:px-[20px] lg:px-[30px] py-[40px] mb-[40px]">
+    <div className="xs:px-[30px] sm:px-[10px] md:px-[20px] lg:px-[30px] py-[40px] mb-[40px]">
       <div>
         <h1 className="text-[32px] sm:text-[48px] font-semibold leading-[35px] sm:leading-[50px] ">
           Tenolent Template Shortcode and Post Feature that will blow your mind

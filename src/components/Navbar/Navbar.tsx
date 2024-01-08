@@ -28,25 +28,25 @@ const Navbar = () => {
         <div className="hidden sm:flex sm:flex-row sm:justify-center sm:items-center sm:block">
           <a
             href="/"
-            className="sm:mr-[50px] md:mr-[60px] lg:mr-[80px] font-semibold text-offWhite text-[20px] hover:cursor-pointer hover:text-darkWhite"
+            className="sm:mr-[40px] md:mr-[60px] lg:mr-[80px] font-semibold text-offWhite text-[20px] hover:cursor-pointer hover:text-darkWhite"
           >
             Home
           </a>
           <a
             href="/blogs"
-            className="sm:mr-[50px] md:mr-[60px] lg:mr-[80px] font-semibold text-offWhite text-[20px] hover:cursor-pointer  hover:text-darkWhite"
+            className="sm:mr-[40px] md:mr-[60px] lg:mr-[80px] font-semibold text-offWhite text-[20px] hover:cursor-pointer  hover:text-darkWhite"
           >
             Blogs
           </a>
           <a
             href="/about"
-            className="sm:mr-[50px] md:mr-[60px] lg:mr-[80px] font-semibold text-offWhite text-[20px] hover:cursor-pointer  hover:text-darkWhite"
+            className="sm:mr-[40px] md:mr-[60px] lg:mr-[80px] font-semibold text-offWhite text-[20px] hover:cursor-pointer  hover:text-darkWhite"
           >
             About
           </a>
           <a
             href="/contact"
-            className="sm:mr-[50px] md:mr-[60px] lg:mr-[80px] p-[2px] font-semibold text-offWhite text-[20px] hover:cursor-pointer  hover:text-darkWhite"
+            className="sm:mr-[40px] md:mr-[60px] lg:mr-[80px] p-[2px] font-semibold text-offWhite text-[20px] hover:cursor-pointer  hover:text-darkWhite"
           >
             Contact
           </a>
