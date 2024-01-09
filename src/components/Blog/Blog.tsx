@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import facebook from "../../images/facebook.png";
 import linkedIn from "../../images/linkedIn.png";
 import x from "../../images/x.png";
@@ -6,7 +6,45 @@ import printer from "../../images/printer.png";
 import Desktop from "../../images/Desktop.png";
 import BlogBox from "../BlogBox/BlogBox";
 
+type YourElementType = string;
+
+// type YourElementType1 = {
+//   title:
+// }
+
+interface ContentValue {
+  value: string;
+}
+
+interface ContentArr {
+  content: ContentValue[];
+}
+interface ContentItem {
+  sys: {
+    id: string;
+  };
+  post: {
+    json: {
+      nodeType: string;
+      data: any;
+      content: any[]; // Adjust the type based on your actual content structure
+    };
+  };
+  title: string;
+  author: string;
+}
+
+interface obj1 {
+  title: string;
+  author: string;
+  post: YourElementType[];
+}
+
 const Blog = () => {
+  const [title, setTitle] = useState(null);
+  const [author, setAuthor] = useState(null);
+  const [post, setPost] = useState<YourElementType[]>([]);
+
   return (
     <div className="xs:px-[30px] sm:px-[10px] md:px-[20px] lg:px-[30px] py-[40px] mb-[40px]">
       <div>
@@ -70,37 +108,22 @@ const Blog = () => {
               Simplicity affronting inquietude for now sympathize age. She meant
               new their sex could defer child.
             </p>
-            <p className="text-[20px] mb-[20px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p className="text-[20px] mb-[20px]">
-              The text is a corrupted version of the original and therefore does
-              not mean anything inparticular. The book however where it
-              originates discusses the philosophical views of Epicureanism,
-              Stoicism, and the Platonism of Antiochus of Ascalon.
-            </p>
           </div>
           <div className="flex flex-col justify-center items-center mt-[30px] sm:mt-[0] sm:flex-row   sm:justify-between lg:w-[82%]">
             <div className="mb-[30px] sm:mb-[0]">
-              <BlogBox />
+              <BlogBox title={"The desing"} author={"Khizar"} />
             </div>
             <div>
-              <BlogBox />
+              <BlogBox title={"The desing"} author={"Khizar"} />
             </div>
           </div>
         </div>
         <div className="mt-[22px]">
           <div className="hidden xl:block mb-[50px]">
-            <BlogBox />
+            <BlogBox title={"The desing"} author={"Khizar"} />
           </div>
           <div className="hidden xl:block">
-            <BlogBox />
+            <BlogBox title={"The desing"} author={"Khizar"} />
           </div>
         </div>
       </div>
