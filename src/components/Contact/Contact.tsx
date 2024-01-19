@@ -30,6 +30,14 @@ const Contact = () => {
           className="w-[300px] sm:w-[440px] h-[300px] pl-[20px] pt-[10px] placeholder-start border-[1px] border-color-gray focus:border-[1px] focus:outline-none"
         />
       </div>
+      <div className="flex flex-row justify-even mb-[30px]">
+        <div className="w-[170px] sm:w-[290px]"></div>
+        <div>
+          <button className="text-white text-[20px] float-right bg-[#4E9CA8] w-[130px] sm:w-[150px] h-[70px] text-center rounded-[50px] hover:bg-[#366d75]">
+            Submit
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

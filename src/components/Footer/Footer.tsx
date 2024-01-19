@@ -66,7 +66,7 @@ const Footer = () => {
               placeholder="Email"
               className="w-[230px] xs:w-[300px] sm:w-[350px] h-[70px] bg-[#f3f4f8] rounded-[50px] pl-[20px] focus:border-0 focus:outline-none"
             />
-            <button className="text-white bg-[#4E9CA8] w-[90px] xs:w-[130px] sm:w-[150px] h-[70px] text-center absolute right-0 sm:right-0 rounded-[50px]">
+            <button className="text-white text-[20px] bg-[#4E9CA8] w-[90px] xs:w-[130px] sm:w-[150px] h-[70px] text-center absolute right-0 sm:right-0 rounded-[50px] hover:bg-[#366d75]">
               Submit
             </button>
           </div>
