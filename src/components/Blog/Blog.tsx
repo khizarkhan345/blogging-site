@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router";
 import RichTextRenderer from "../RichTextRenderer/RichTextRenderer";
 import facebook from "../../images/facebook.png";
 import linkedIn from "../../images/linkedIn.png";
@@ -9,12 +10,12 @@ import BlogBox from "../BlogBox/BlogBox";
 
 import useFetch from "../../Hooks/useFetch";
 
-//const space_id = process.env.REACT_APP_SPACE_ID;
-//const url = `https://graphql.contentful.com/content/v1/spaces/${space_id}/`;
 const Blog = (props: any) => {
+  const { id } = useParams();
+  console.log(id);
   const query = `
   {
-  blogPost1Collection(limit:1) {
+  blogPost1Collection {
     items {
       sys {
         id
@@ -28,7 +29,13 @@ const Blog = (props: any) => {
   }
  }
   `;
-  const blogPost = useFetch(query);
+  let blogPost = useFetch(query);
+
+  const suggestedPosts = id ? blogPost.filter((blog) => blog.id !== id) : [];
+
+  blogPost = id ? blogPost.filter((blog) => blog.id === id) : blogPost;
+
+  console.log(blogPost);
 
   return (
     <div className="xs:px-[5px] sm:px-[10px] md:px-[20px] lg:px-[30px] py-[40px] mb-[40px]">
@@ -75,57 +82,46 @@ const Blog = (props: any) => {
                 ))}
               </div>
               <div className="flex flex-col justify-center items-center mt-[30px] sm:mt-[0] sm:flex-row   sm:justify-between lg:w-[82%]">
-                <div className="mb-[30px] md:mr-[10px] sm:mb-[0]">
-                  <BlogBox
-                    title={"The desing"}
-                    author={"Khizar"}
-                    blogWidth={"lg:w-[450px]"}
-                    mbleBlogWidth={"w-[380px]"}
-                    boxWidth={"lg:w-[370px]"}
-                    mbleBoxWidth={"w-[340px]"}
-                    boxHeight={"lg:h-[140px]"}
-                    mbleBoxHeight={"h-[110px]"}
-                  />
-                </div>
-                <div>
-                  <BlogBox
-                    title={"The desing"}
-                    author={"Khizar"}
-                    blogWidth={"lg:w-[450px]"}
-                    mbleBlogWidth={"w-[380px]"}
-                    boxWidth={"lg:w-[370px]"}
-                    mbleBoxWidth={"w-[340px]"}
-                    boxHeight={"lg:h-[140px]"}
-                    mbleBoxHeight={"h-[110px]"}
-                  />
-                </div>
+                {suggestedPosts.length > 0
+                  ? suggestedPosts.map((post) => (
+                      <div
+                        className="mb-[30px] md:mr-[10px] sm:mb-[0]"
+                        key={post.id}
+                      >
+                        <BlogBox
+                          id={post.id}
+                          title={post.title}
+                          author={post.author}
+                          blogWidth={"lg:w-[450px]"}
+                          mbleBlogWidth={"w-[380px]"}
+                          boxWidth={"lg:w-[370px]"}
+                          mbleBoxWidth={"w-[340px]"}
+                          boxHeight={"lg:h-[140px]"}
+                          mbleBoxHeight={"h-[160px]"}
+                        />
+                      </div>
+                    ))
+                  : ""}
               </div>
             </div>
             <div className="mt-[22px]">
-              <div className="hidden xl:block mb-[50px]">
-                <BlogBox
-                  title={"The desing"}
-                  author={"Khizar"}
-                  blogWidth="md:w-[380px]"
-                  mbleBlogWidth={"w-[380px]"}
-                  boxWidth={"md:w-[340px]"}
-                  mbleBoxWidth={"w-[340px]"}
-                  boxHeight={"h-[110px]"}
-                  mbleBoxHeight={"h-[110px]"}
-                />
-              </div>
-              <div className="hidden xl:block">
-                <BlogBox
-                  title={"The desing"}
-                  author={"Khizar"}
-                  blogWidth={"md:w-[500px]"}
-                  mbleBlogWidth={"w-[380px]"}
-                  boxWidth={"md:w-[420px]"}
-                  mbleBoxWidth={"w-[340px]"}
-                  boxHeight={"md:h-[180px]"}
-                  mbleBoxHeight={"h-[110px]"}
-                />
-              </div>
+              {suggestedPosts.length > 0
+                ? suggestedPosts.map((post) => (
+                    <div className="hidden xl:block mb-[50px]" key={post.id}>
+                      <BlogBox
+                        id={post.id}
+                        title={post.title}
+                        author={post.author}
+                        blogWidth={"lg:w-[450px]"}
+                        mbleBlogWidth={"w-[380px]"}
+                        boxWidth={"lg:w-[370px]"}
+                        mbleBoxWidth={"w-[340px]"}
+                        boxHeight={"lg:h-[140px]"}
+                        mbleBoxHeight={"h-[140px]"}
+                      />
+                    </div>
+                  ))
+                : ""}
             </div>
           </div>
         </>

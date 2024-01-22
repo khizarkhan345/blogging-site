@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import design from "../../images/design1.png";
 
 interface blogDataType {
+  id: string;
   title: string;
   author: string;
   blogWidth: string;
@@ -12,6 +14,7 @@ interface blogDataType {
   mbleBoxHeight: string;
 }
 const BlogBox = ({
+  id,
   title,
   author,
   blogWidth,
@@ -21,11 +24,13 @@ const BlogBox = ({
   boxHeight,
   mbleBoxHeight,
 }: blogDataType) => {
-  console.log(blogWidth);
+  const navigate = useNavigate();
+
   return (
     // eslint-disable-next-line no-template-curly-in-string
     <div
-      className={`flex items-center justify-center relative ${mbleBlogWidth} h-[400px] ${blogWidth}  shadow-md offset-x-10 offset-y-5 bg-[#D3D3DB]`}
+      className={`flex items-center justify-center relative ${mbleBlogWidth} h-[400px] ${blogWidth}  shadow-md offset-x-10 offset-y-5 bg-[#D3D3DB] hover:cursor-pointer`}
+      onClick={() => navigate(`/blogs/${id}`)}
     >
       <img
         src={design}

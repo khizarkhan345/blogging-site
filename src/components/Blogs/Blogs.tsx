@@ -70,6 +70,7 @@ const Blogs = (props: any) => {
         {blogPost.map((blog: obj1) => (
           <div key={blog.id}>
             <BlogBox
+              id={blog.id}
               title={blog.title}
               author={blog.author}
               blogWidth="sm:w-[500px]"
