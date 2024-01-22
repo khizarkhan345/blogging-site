@@ -5,6 +5,7 @@ interface blogDataType {
   title: string;
   author: string;
   blogWidth: string;
+  mbleBlogWidth: string;
   boxWidth: string;
   mbleBoxWidth: string;
   boxHeight: string;
@@ -14,6 +15,7 @@ const BlogBox = ({
   title,
   author,
   blogWidth,
+  mbleBlogWidth,
   boxWidth,
   mbleBoxWidth,
   boxHeight,
@@ -23,7 +25,7 @@ const BlogBox = ({
   return (
     // eslint-disable-next-line no-template-curly-in-string
     <div
-      className={`flex items-center justify-center relative w-[380px] h-[400px] sm:${blogWidth}  shadow-md offset-x-10 offset-y-5 bg-[#D3D3DB]`}
+      className={`flex items-center justify-center relative ${mbleBlogWidth} h-[400px] ${blogWidth}  shadow-md offset-x-10 offset-y-5 bg-[#D3D3DB]`}
     >
       <img
         src={design}
@@ -31,7 +33,7 @@ const BlogBox = ({
         className="w-[92%] max-w-full max-h-full"
       />
       <div
-        className={`${mbleBoxWidth} ${mbleBoxHeight} p-[5px] sm:${boxWidth} sm:${boxHeight} bg-[#fff] absolute bottom-[30px] sm:bottom-[30px]`}
+        className={`${mbleBoxWidth} ${mbleBoxHeight} p-[5px] ${boxWidth} ${boxHeight} bg-[#fff] absolute bottom-[30px] sm:bottom-[30px]`}
       >
         <p className="text-[20px] sm:text-[24px] text-[#7C8093] pl-[3px]">
           {title}

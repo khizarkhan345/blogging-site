@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
-import YourComponent from "../RichTextRenderer/RichTextRenderer";
+import React from "react";
+import RichTextRenderer from "../RichTextRenderer/RichTextRenderer";
 import facebook from "../../images/facebook.png";
 import linkedIn from "../../images/linkedIn.png";
 import x from "../../images/x.png";
@@ -32,35 +30,8 @@ const Blog = (props: any) => {
   `;
   const blogPost = useFetch(query);
 
-  console.log(blogPost);
-  // const blogpost1 = [
-  //   {
-  //     title: "Khizar",
-  //     author: "khan",
-  //     post: ["1", "2", "3"],
-  //   },
-  // ];
-  // console.log(blogPost);
-
-  //   const Bold = ({ children:any }) => <span className="bold">{children}</span>;
-
-  // const Text = ({ children: any }) => <p className="align-center">{children}</p>;
-
-  const options = {
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
-        <p className="text-[18px] mb-[20px]">{children}</p>
-      ),
-      [BLOCKS.HEADING_2]: (node: any, children: any) => (
-        <h2 className="text-[36px] bold mb-[10px]">{children}</h2>
-      ),
-      [BLOCKS.HEADING_3]: (node: any, children: any) => (
-        <h3 className="text-[28px]">{children}</h3>
-      ),
-    },
-  };
   return (
-    <div className="xs:px-[30px] sm:px-[10px] md:px-[20px] lg:px-[30px] py-[40px] mb-[40px]">
+    <div className="xs:px-[5px] sm:px-[10px] md:px-[20px] lg:px-[30px] py-[40px] mb-[40px]">
       {blogPost.length > 0 ? (
         <>
           <div>
@@ -98,24 +69,21 @@ const Blog = (props: any) => {
               <div className="lg:w-[80%] xl:w-[85%] mt-[30px]">
                 <img src={Desktop} alt="main" />
               </div>
-              <div className="lg:w-[80%] xl:w-[85%] mt-[30px]">
-                {
-                  // eslint-disable-next-line
-                  //<YourComponent blogPost={blogPost}/>
-                  blogPost[0].post.map((post: any) => (
-                    <div>{documentToReactComponents(post, options)}</div>
-                  ))
-                }
+              <div className="lg:w-[80%] xl:w-[85%] mt-[30px] pr-[5px]">
+                {blogPost[0].post.map((post: any) => (
+                  <RichTextRenderer post={post} />
+                ))}
               </div>
               <div className="flex flex-col justify-center items-center mt-[30px] sm:mt-[0] sm:flex-row   sm:justify-between lg:w-[82%]">
-                <div className="mb-[30px] sm:mb-[0]">
+                <div className="mb-[30px] md:mr-[10px] sm:mb-[0]">
                   <BlogBox
                     title={"The desing"}
                     author={"Khizar"}
-                    blogWidth={"w-[380px]"}
-                    boxWidth={"w-[340px]"}
+                    blogWidth={"lg:w-[450px]"}
+                    mbleBlogWidth={"w-[380px]"}
+                    boxWidth={"lg:w-[370px]"}
                     mbleBoxWidth={"w-[340px]"}
-                    boxHeight={"h-[110px]"}
+                    boxHeight={"lg:h-[140px]"}
                     mbleBoxHeight={"h-[110px]"}
                   />
                 </div>
@@ -123,10 +91,11 @@ const Blog = (props: any) => {
                   <BlogBox
                     title={"The desing"}
                     author={"Khizar"}
-                    blogWidth={"w-[380px]"}
-                    boxWidth={"w-[340px]"}
+                    blogWidth={"lg:w-[450px]"}
+                    mbleBlogWidth={"w-[380px]"}
+                    boxWidth={"lg:w-[370px]"}
                     mbleBoxWidth={"w-[340px]"}
-                    boxHeight={"h-[110px]"}
+                    boxHeight={"lg:h-[140px]"}
                     mbleBoxHeight={"h-[110px]"}
                   />
                 </div>
@@ -137,8 +106,9 @@ const Blog = (props: any) => {
                 <BlogBox
                   title={"The desing"}
                   author={"Khizar"}
-                  blogWidth={"w-[380px]"}
-                  boxWidth={"w-[340px]"}
+                  blogWidth="md:w-[380px]"
+                  mbleBlogWidth={"w-[380px]"}
+                  boxWidth={"md:w-[340px]"}
                   mbleBoxWidth={"w-[340px]"}
                   boxHeight={"h-[110px]"}
                   mbleBoxHeight={"h-[110px]"}
@@ -148,10 +118,11 @@ const Blog = (props: any) => {
                 <BlogBox
                   title={"The desing"}
                   author={"Khizar"}
-                  blogWidth={"w-[380px]"}
-                  boxWidth={"w-[340px]"}
+                  blogWidth={"md:w-[500px]"}
+                  mbleBlogWidth={"w-[380px]"}
+                  boxWidth={"md:w-[420px]"}
                   mbleBoxWidth={"w-[340px]"}
-                  boxHeight={"h-[110px]"}
+                  boxHeight={"md:h-[180px]"}
                   mbleBoxHeight={"h-[110px]"}
                 />
               </div>

@@ -72,11 +72,12 @@ const Blogs = (props: any) => {
             <BlogBox
               title={blog.title}
               author={blog.author}
-              blogWidth={"w-[500px]"}
-              boxWidth={"w-[420px]"}
-              mbleBoxWidth={"w-[340px]"}
-              boxHeight={"h-[180px]"}
-              mbleBoxHeight={"h-[110px]"}
+              blogWidth="sm:w-[500px]"
+              mbleBlogWidth="w-[380px]"
+              boxWidth="sm:w-[420px]"
+              mbleBoxWidth="w-[340px]"
+              boxHeight="sm:h-[180px]"
+              mbleBoxHeight="h-[110px]"
             />
           </div>
         ))}
@@ -86,11 +87,3 @@ const Blogs = (props: any) => {
 };
 
 export default Blogs;
-// const mapStateToProps = (state: any) => {
-//   console.log(state);
-//   return {
-//     blogData: state.blogReducer,
-//   };
-// };
-
-// export default connect(mapStateToProps)(Blogs);
