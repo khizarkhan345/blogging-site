@@ -97,7 +97,7 @@ const Blog = (props: any) => {
                           boxWidth={"lg:w-[370px]"}
                           mbleBoxWidth={"w-[340px]"}
                           boxHeight={"lg:h-[140px]"}
-                          mbleBoxHeight={"h-[110px]"}
+                          mbleBoxHeight={"h-[160px]"}
                         />
                       </div>
                     ))
@@ -117,7 +117,7 @@ const Blog = (props: any) => {
                         boxWidth={"lg:w-[370px]"}
                         mbleBoxWidth={"w-[340px]"}
                         boxHeight={"lg:h-[140px]"}
-                        mbleBoxHeight={"h-[110px]"}
+                        mbleBoxHeight={"h-[140px]"}
                       />
                     </div>
                   ))
