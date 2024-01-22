@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import RichTextRenderer from "../RichTextRenderer/RichTextRenderer";
 import facebook from "../../images/facebook.png";
@@ -10,7 +10,15 @@ import BlogBox from "../BlogBox/BlogBox";
 
 import useFetch from "../../Hooks/useFetch";
 
+interface obj1 {
+  id: string;
+  title: string;
+  author: string;
+  post: any;
+}
+
 const Blog = (props: any) => {
+  //const [suggestedPosts, setSuggestedPosts] = useState<any>(null);
   const { id } = useParams();
   console.log(id);
   const query = `
@@ -31,11 +39,16 @@ const Blog = (props: any) => {
   `;
   let blogPost = useFetch(query);
 
-  const suggestedPosts = id ? blogPost.filter((blog) => blog.id !== id) : [];
+  const suggestedPosts = id ? blogPost.filter((blog) => blog.id != id) : [];
+
+  // setSuggestedPosts(suggestedPost);
+  // setSuggestedPosts((prev) => {
+  //   return [...prev, ...suggestedPost];
+  // });
 
   blogPost = id ? blogPost.filter((blog) => blog.id === id) : blogPost;
 
-  console.log(blogPost);
+  console.log(suggestedPosts);
 
   return (
     <div className="xs:px-[5px] sm:px-[10px] md:px-[20px] lg:px-[30px] py-[40px] mb-[40px]">
@@ -83,7 +96,7 @@ const Blog = (props: any) => {
               </div>
               <div className="flex flex-col justify-center items-center mt-[30px] sm:mt-[0] sm:flex-row   sm:justify-between lg:w-[82%]">
                 {suggestedPosts.length > 0
-                  ? suggestedPosts.map((post) => (
+                  ? suggestedPosts.map((post: any) => (
                       <div
                         className="mb-[30px] md:mr-[10px] sm:mb-[0]"
                         key={post.id}
@@ -106,7 +119,7 @@ const Blog = (props: any) => {
             </div>
             <div className="mt-[22px]">
               {suggestedPosts.length > 0
-                ? suggestedPosts.map((post) => (
+                ? suggestedPosts.map((post: any) => (
                     <div className="hidden xl:block mb-[50px]" key={post.id}>
                       <BlogBox
                         id={post.id}
