@@ -1,5 +1,6 @@
 import React from "react";
 //import { connect } from "react-redux";
+import { Document } from "@contentful/rich-text-types";
 import useFetch from "../../Hooks/useFetch";
 import BlogBox from "../BlogBox/BlogBox";
 
@@ -35,7 +36,7 @@ interface obj1 {
   id: string;
   title: string;
   author: string;
-  post: YourElementType[];
+  post: Document;
 }
 
 const space_id = process.env.REACT_APP_SPACE_ID;
@@ -65,10 +66,19 @@ const Blogs = (props: any) => {
   return (
     <div className="pt-[30px] pb-[80px]">
       <h1 className="text-[40px] text-center mb-[60px]">Feature blogs</h1>
-      <div className="grid grid-cols-1 justify-center justify-items-center gap-x-2 gap-y-[60px] md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 justify-center justify-items-center gap-x-2 gap-y-[60px] md:grid-cols-2">
         {blogPost.map((blog: obj1) => (
           <div key={blog.id}>
-            <BlogBox title={blog.title} author={blog.author} />
+            <BlogBox
+              title={blog.title}
+              author={blog.author}
+              blogWidth="sm:w-[500px]"
+              mbleBlogWidth="w-[380px]"
+              boxWidth="sm:w-[420px]"
+              mbleBoxWidth="w-[340px]"
+              boxHeight="sm:h-[180px]"
+              mbleBoxHeight="h-[110px]"
+            />
           </div>
         ))}
       </div>
@@ -77,11 +87,3 @@ const Blogs = (props: any) => {
 };
 
 export default Blogs;
-// const mapStateToProps = (state: any) => {
-//   console.log(state);
-//   return {
-//     blogData: state.blogReducer,
-//   };
-// };
-
-// export default connect(mapStateToProps)(Blogs);

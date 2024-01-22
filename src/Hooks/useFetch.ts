@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import {Document} from '@contentful/rich-text-types';
 
 type YourElementType = string;
 
@@ -32,7 +33,7 @@ interface obj1 {
     id: string,
   title: string;
   author: string;
-  post: YourElementType[];
+  post: any;
 }
 
 const useFetch = (query: string) => {
@@ -80,26 +81,36 @@ const useFetch = (query: string) => {
       const items: ContentItem[] = data.data.blogPost1Collection.items;
 
       items.forEach((item: ContentItem) => {
-        const obj: obj1 = {
-          id: "",
-          title: "",
-          author: "",
-          post: [""],
-        };
+        // const obj: obj1 = {
+        //   id: "",
+        //   title: "",
+        //   author: "",
+        //   post: Document
+        // };
 
        // console.log("item", item.sys.id);
-        const content = item.post.json.content;
+        const content: any = item.post.json.content;
 
-        obj.id = item.sys.id;
-        obj.title = item.title;
+        //obj.id = item.sys.id;
+        //obj.title = item.title;
 
-        obj.author = item.author;
+        //obj.author = item.author;
 
-        content.forEach((element: ContentArr) => {
-          //console.log(element.content[0].value);
+        //obj.post = content;
 
-          obj.post.push(element.content[0].value);
-        });
+        const obj: obj1 = {
+          id: item.sys.id,
+          title: item.title,
+          author: item.author,
+          post: content
+        };
+        //console.log("content", content);
+
+        // content.forEach((element: ContentArr) => {
+        //   //console.log(element.content[0].value);
+
+        //   obj.post.push(element.content[0].value);
+        // });
 
         setBlogPost((prev) => {
             return [...prev, obj];
