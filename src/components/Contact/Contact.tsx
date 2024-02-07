@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 
 const Contact = () => {
   const [firstName, setFirstName] = useState<string>("");

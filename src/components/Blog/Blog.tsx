@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router";
 import RichTextRenderer from "../RichTextRenderer/RichTextRenderer";
 import facebook from "../../images/facebook.png";
@@ -7,17 +7,10 @@ import x from "../../images/x.png";
 import printer from "../../images/printer.png";
 import Desktop from "../../images/Desktop.png";
 import BlogBox from "../BlogBox/BlogBox";
-
 import useFetch from "../../Hooks/useFetch";
+import { blogPost, suggestedPost } from "../../Types/Types";
 
-interface obj1 {
-  id: string;
-  title: string;
-  author: string;
-  post: any;
-}
-
-const Blog = (props: any) => {
+const Blog = () => {
   //const [suggestedPosts, setSuggestedPosts] = useState<any>(null);
   const { id } = useParams();
   console.log(id);
@@ -39,7 +32,11 @@ const Blog = (props: any) => {
   `;
   let blogPost = useFetch(query);
 
-  const suggestedPosts = id ? blogPost.filter((blog) => blog.id != id) : [];
+  // if (blogPost.length > 0) {
+  //   console.log(blogPost[0].post);
+  // }
+
+  const suggestedPosts = id ? blogPost.filter((blog) => blog.id !== id) : [];
 
   // setSuggestedPosts(suggestedPost);
   // setSuggestedPosts((prev) => {
@@ -48,7 +45,9 @@ const Blog = (props: any) => {
 
   blogPost = id ? blogPost.filter((blog) => blog.id === id) : blogPost;
 
-  console.log(suggestedPosts);
+  if (blogPost.length > 0) {
+    console.log(suggestedPosts);
+  }
 
   return (
     <div className="xs:px-[5px] sm:px-[10px] md:px-[20px] lg:px-[30px] py-[40px] mb-[40px]">
@@ -90,13 +89,13 @@ const Blog = (props: any) => {
                 <img src={Desktop} alt="main" />
               </div>
               <div className="lg:w-[80%] xl:w-[85%] mt-[30px] pr-[5px]">
-                {blogPost[0].post.map((post: any) => (
+                {blogPost[0].post.map((post: blogPost) => (
                   <RichTextRenderer post={post} />
                 ))}
               </div>
               <div className="flex flex-col justify-center items-center mt-[30px] sm:mt-[0] sm:flex-row   sm:justify-between lg:w-[82%]">
                 {suggestedPosts.length > 0
-                  ? suggestedPosts.map((post: any) => (
+                  ? suggestedPosts.map((post: suggestedPost) => (
                       <div
                         className="mb-[30px] md:mr-[10px] sm:mb-[0]"
                         key={post.id}
@@ -119,7 +118,7 @@ const Blog = (props: any) => {
             </div>
             <div className="mt-[22px]">
               {suggestedPosts.length > 0
-                ? suggestedPosts.map((post: any) => (
+                ? suggestedPosts.map((post: suggestedPost) => (
                     <div className="hidden xl:block mb-[50px]" key={post.id}>
                       <BlogBox
                         id={post.id}
@@ -146,11 +145,3 @@ const Blog = (props: any) => {
 };
 
 export default Blog;
-// const mapStateToProps = (state: any) => {
-//   console.log(state);
-//   return {
-//     blogData: state.blogReducer,
-//   };
-// };
-
-// export default connect(mapStateToProps)(Blog);
