@@ -1,19 +1,19 @@
 import {useState, useEffect} from 'react';
-import {Document} from '@contentful/rich-text-types';
 
-type YourElementType = string;
 
-// type YourElementType1 = {
-//   title:
+// type YourElementType = string;
+
+// // type YourElementType1 = {
+// //   title:
+// // }
+
+// interface ContentValue {
+//   value: string;
 // }
 
-interface ContentValue {
-  value: string;
-}
-
-interface ContentArr {
-  content: ContentValue[];
-}
+// interface ContentArr {
+//   content: ContentValue[];
+// }
 interface ContentItem {
   sys: {
     id: string;
@@ -39,22 +39,22 @@ interface obj1 {
 const useFetch = (query: string) => {
   const [blogPost, setBlogPost] = useState<obj1[]>([]);
 
-    const query1 = `
-  {
-  blogPost1Collection {
-    items {
-      sys {
-        id
-      }      
-      title
-      author
-      post {
-        json 
-      }
-    }
-  }
- }
-  `;
+//     const query1 = `
+//   {
+//   blogPost1Collection {
+//     items {
+//       sys {
+//         id
+//       }      
+//       title
+//       author
+//       post {
+//         json 
+//       }
+//     }
+//   }
+//  }
+//   `;
 
   const space_id = process.env.REACT_APP_SPACE_ID;
 
