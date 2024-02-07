@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router";
 import RichTextRenderer from "../RichTextRenderer/RichTextRenderer";
 import facebook from "../../images/facebook.png";
@@ -7,47 +7,26 @@ import x from "../../images/x.png";
 import printer from "../../images/printer.png";
 import Desktop from "../../images/Desktop.png";
 import BlogBox from "../BlogBox/BlogBox";
-import useFetch from "../../Hooks/useFetch";
-import { blogPost, suggestedPost } from "../../Types/Types";
+import { blog, blogPost, suggestedPost } from "../../Types/Types";
+import MyContext from "../../Context/MyContext";
 
 const Blog = () => {
   //const [suggestedPosts, setSuggestedPosts] = useState<any>(null);
   const { id } = useParams();
   console.log(id);
-  const query = `
-  {
-  blogPost1Collection {
-    items {
-      sys {
-        id
-      }      
-      title
-      author
-      post {
-        json 
-      }
-    }
-  }
- }
-  `;
-  let blogPost = useFetch(query);
 
+  let blogPost = useContext(MyContext);
+
+  console.log(blogPost);
   // if (blogPost.length > 0) {
   //   console.log(blogPost[0].post);
   // }
 
-  const suggestedPosts = id ? blogPost.filter((blog) => blog.id !== id) : [];
+  const suggestedPosts = id
+    ? blogPost.filter((blog: blog) => blog.id !== id)
+    : [];
 
-  // setSuggestedPosts(suggestedPost);
-  // setSuggestedPosts((prev) => {
-  //   return [...prev, ...suggestedPost];
-  // });
-
-  blogPost = id ? blogPost.filter((blog) => blog.id === id) : blogPost;
-
-  if (blogPost.length > 0) {
-    console.log(suggestedPosts);
-  }
+  blogPost = id ? blogPost.filter((blog: blog) => blog.id === id) : blogPost;
 
   return (
     <div className="xs:px-[5px] sm:px-[10px] md:px-[20px] lg:px-[30px] py-[40px] mb-[40px]">
