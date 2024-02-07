@@ -1,31 +1,11 @@
-import React from "react";
-//import { connect } from "react-redux";
-
-import useFetch from "../../Hooks/useFetch";
+import React, { useContext } from "react";
 import BlogBox from "../BlogBox/BlogBox";
 import { blog } from "../../Types/Types";
+import MyContext from "./../../Context/MyContext";
 
 const Blogs = () => {
-  const query = `
-  {
-  blogPost1Collection {
-    items {
-      sys {
-        id
-      }      
-      title
-      author
-      post {
-        json 
-      }
-    }
-  }
- }
-  `;
+  const blogPost = useContext(MyContext);
 
-  const blogPost = useFetch(query);
-
-  console.log(blogPost);
   return (
     <div className="pt-[30px] pb-[80px]">
       <h1 className="text-[40px] text-center mb-[60px]">Feature blogs</h1>
